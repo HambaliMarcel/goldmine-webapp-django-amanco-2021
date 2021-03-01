@@ -1,0 +1,31 @@
+{% extends "template.html"%}
+{% load static %}
+
+{% block head%}
+<link rel="stylesheet" href="{% static 'dashboard/css/styles3.css' %}">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+<title>{{title}} - Goldmine</title>
+
+{% endblock head%}
+
+{% block body%}
+<header class="header" id="header">
+    <div class="header__toggle">
+        <i class="uil uil-gold" id="header-toggle"></i>
+    </div>
+    <div class="header__logo">
+        <img src="{% static 'img/Logo-Goldmine.png' %}" alt="Goldmine Logo">
+    </div>
+    <div class="header__img">
+        <img src="{% static 'img/profil.jpeg' %}" alt="">
+    </div>
+</header>
+
+<section class="body-a">
+    <img src="{% static 'dashboard/img/Company-pana.png'%}" alt="">
+</section>
+<section class="body-b">
+    <a href="{% url 'engine:index'%}"> As Good As It's Gold</a>
+</section>
+
+{% endblock body%}

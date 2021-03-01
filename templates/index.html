@@ -1,0 +1,38 @@
+{% extends "template.html"%}
+{% load static %}
+
+{% block head%}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<title>{{title}} {{subtitle}} </title>
+
+{% endblock head%}
+
+{% block body%}
+
+<section class="login-img">
+    <img src="{% static 'img/Visual data-pana.png'%}" alt="loginimg">
+</section>
+<section class="login-box">
+    <div class="f-login">
+        <img class="logo-login" src="{% static 'img/Logo-Goldmine.png'%}" alt="">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="uname">
+                {{logform.username}}
+            </div>
+            <i class="fas fa-lock"></i>
+            <br>
+            <div class="pass">
+                {{logform.password}}
+            </div>
+            <br>
+            <input type="submit" value="Login" id="submit">
+        </form><br>
+        <a href="{% url 'dashboard:index'%}"> Forgotten Password ?</a>
+        <div class="p">
+            <p>Amanco.id © 2021. All Rights Reserved.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock body%}
