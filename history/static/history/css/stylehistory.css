@@ -1,0 +1,245 @@
+/*----------------FONTS-----------------*/
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+/*----------------Var Css-----------------*/
+:root{
+  --header-height: 3rem;
+  --nav-width: 68px;
+
+  /*---------------- Color Master -----------------*/
+  --first-color: #005a51;
+  --first-color-light: #ffffff;
+  --white-color: #F7F6FB;
+  
+  /*---------------- Font & typography -----------------*/
+  --body-font: 'Nunito', sans-serif;
+  --normal-font-size: 1rem;
+  
+  /*---------------- z index -----------------*/
+  --z-fixed: 100;
+}
+
+/*---------------- Core -----------------*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+body{
+  position: relative;
+  margin: var(--header-height) 0 0 0;
+  padding: 0 1rem;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+.header h1{
+  color: #005a51;
+  font-size: 25px;
+  display: flex;
+  position: relative;
+  left: 10%;
+  width: 100%;
+  height: auto;
+  z-index: var(--z-fixed);
+}
+.header .sep{
+  border-radius: 50px;
+  background-color: #005a51;
+  width: 28%;
+  height: 4px;
+  display: flex;
+  position: relative;
+  transition: .5s;
+  right: 58%;
+  top: 30px;
+}
+a{
+  text-decoration: none;
+}
+/*----------------Header-----------------*/
+.header{
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: var(--white-color);
+  z-index: var(--z-fixed);
+}
+
+.header__toggle{
+  color: var(--first-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.header__img{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.header__img img{
+  width: 40px;
+}
+
+/*----------------Navigation-----------------*/
+.l-navbar{
+  position: fixed;
+  top: 0;
+  left: -30%;
+  width: var(--nav-width);
+  height: 100vh;
+  background-image: linear-gradient(to bottom,#005a51,#02313f);
+  /*background-color: var(--first-color);*/
+  padding: .5rem 1rem 0 0;
+  z-index: var(--z-fixed);
+}
+
+.nav{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.nav__logo, .nav__link{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 2rem;
+  padding: .5rem 0 .5rem 1.5rem;
+}
+
+.nav__logo{
+  margin-bottom: 2rem;
+}
+
+.nav__logo-icon{
+  font-size: 1.25rem;
+  color: var(--white-color);
+}
+
+.nav__logo-name{
+  width: 100px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.nav__link{
+  position: relative;
+  color: var(--first-color-light);
+  margin-bottom: 1.5rem;
+}
+
+.nav__link:hover{
+  color: var(--white-color);
+  background-color: #0b776c;
+}
+
+.nav__icon{
+  font-size: 1.25rem;
+}
+
+/*Show navbar movil*/
+.show{
+  left: 0;
+}
+
+/*Add padding body movil*/
+.body-pd{
+  padding-left: calc(var(--nav-width) + 1rem);
+}
+
+/*Active links*/
+.active{
+  color: var(--white-color);
+}
+
+.active::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 4px;
+  height: 32px;
+  background-color: var(--white-color);
+}
+
+.logout{
+  z-index: 10;
+  width: 225px;
+  height: 43px;
+  left: 0%;
+  position: absolute;
+  display: inline;
+  opacity: 0;
+  background-color: none;
+  border: none;
+}
+
+/*---------------- MEDIA QUERIES-----------------*/
+@media screen and (min-width: 768px){
+  body{
+    margin: calc(var(--header-height) + 1rem) 0 0 0;
+    padding-left: calc(var(--nav-width) + 2rem);
+  }
+
+  .header{
+    height: calc(var(--header-height) + 1rem);
+    padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+  }
+  .header h1{
+    font-size: 30px;
+    display: flex;
+    position: relative;
+    left: 10%;
+    width: 100%;
+    height: auto;
+  }
+  .header .sep{
+    border-radius: 50px;
+    background-color: #005a51;
+    width: 10%;
+    height: 4px;
+    display: flex;
+    position: relative;
+    transition: .5s;
+    right: 74%;
+    top: 30px;
+  }
+  .header__img{
+    width: 40px;
+    height: 40px;
+  }
+
+  .header__img img{
+    width: 45px;
+  }
+
+  .l-navbar{
+    left: 0;
+    padding: 1rem 0 0 0;
+  }
+  
+  /*Show navbar desktop*/
+  .show{
+    width: calc(var(--nav-width) + 156px);
+  }
+
+  /*Add padding body desktop*/
+  .body-pd{
+    padding-left: calc(var(--nav-width) + 188px);
+  }
+}
+
+

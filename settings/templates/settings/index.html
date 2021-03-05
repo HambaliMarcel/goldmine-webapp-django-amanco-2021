@@ -1,14 +1,64 @@
+{% extends "template.html"%}
 {% load static %}
-<!DOCTYPE html>
-<html>
 
-<head>
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css'%}">
-</head>
+{% block head%}
+<link rel="stylesheet" href="{% static 'settings/css/stylesettings.css' %}">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+<title>{{title}} {{subtitle}} - Goldmine</title>
 
-<body>
-    <img src="{% static 'settings/img/Artboard4.png'%}" alt="">
-</body>
+{% endblock head%}
 
-</html>
+{% block body%}
+<header class="header" id="header">
+    <div class="header__toggle">
+        <i class="uil uil-bars" id="header-toggle"></i>
+    </div>
+    <h1>Scrap Engine</h1>
+    <span class="sep"></span>
+    <div class="header__img">
+        <img src="{% static 'img/profil.jpeg' %}" alt="">
+    </div>
+</header>
+
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <a href="#" class="nav__logo">
+                <i class="uil uil-gold nav__logo-icon"></i>
+                <img class="nav__logo-name" src="{% static 'img/WLogo-Goldmine.png' %}"></img>
+            </a>
+
+            <div class="nav__list">
+                <a href="{% url 'engine:index'%}" class="nav__link">
+                    <i class="uil uil-estate nav__icon"></i>
+                    <span class="nav__name">Engine</span>
+                </a>
+
+                <a href="#" class="nav__link active">
+                    <i class="uil uil-setting nav__icon"></i>
+                    <span class="nav__name">Settings</span>
+                </a>
+
+                <a href="{% url 'history:index'%}" class="nav__link">
+                    <i class="uil uil-file-check-alt nav__icon"></i>
+                    <span class="nav__name">History</span>
+                </a>
+
+            </div>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+
+            <a href="#" class="nav__link">
+                <input type="submit" class="logout" name="sout">
+                <i class="uil uil-signout nav__icon"></i>
+                <span class="nav__name">Log Out</span>
+            </a>
+        </form>
+    </nav>
+</div>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+
+{% endblock body%}

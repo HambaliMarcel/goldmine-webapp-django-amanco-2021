@@ -30,7 +30,6 @@ body{
   padding: 0 1rem;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  transition: .5s;
 }
 
 .header h1{
@@ -42,7 +41,6 @@ body{
   width: 100%;
   height: auto;
   z-index: var(--z-fixed);
-  transition: .5s;
 }
 .header .sep{
   border-radius: 50px;
@@ -71,8 +69,6 @@ a{
   padding: 0 1rem;
   background-color: var(--white-color);
   z-index: var(--z-fixed);
-  transition: .5s;
-  animation: fade_in_show 1s;
 }
 
 .header__toggle{
@@ -104,7 +100,6 @@ a{
   background-image: linear-gradient(to bottom,#005a51,#02313f);
   /*background-color: var(--first-color);*/
   padding: .5rem 1rem 0 0;
-  transition: .5s;
   z-index: var(--z-fixed);
 }
 
@@ -114,7 +109,6 @@ a{
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  animation: fade_in_show 1s;
 }
 
 .nav__logo, .nav__link{
@@ -146,7 +140,6 @@ a{
   position: relative;
   color: var(--first-color-light);
   margin-bottom: 1.5rem;
-  transition: .3s;
 }
 
 .nav__link:hover{
@@ -182,7 +175,17 @@ a{
   background-color: var(--white-color);
 }
 
-
+.logout{
+  z-index: 10;
+  width: 225px;
+  height: 43px;
+  left: 0%;
+  position: absolute;
+  display: inline;
+  opacity: 0;
+  background-color: none;
+  border: none;
+}
 
 /*---------------- MEDIA QUERIES-----------------*/
 @media screen and (min-width: 768px){
@@ -238,18 +241,5 @@ a{
     padding-left: calc(var(--nav-width) + 188px);
   }
 }
-
-@keyframes fade_in_show{
-  0% {
-       opacity: 0.5;
-       transform: scale(0)
-  }
-
-  100% {
-       opacity: 1;
-       transform: scale(1)
-  }
-}
-
 
 

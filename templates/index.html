@@ -1,5 +1,7 @@
 {% extends "template.html"%}
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 
 {% block head%}
 <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -29,6 +31,7 @@
             <input type="submit" value="Login" id="submit">
         </form><br>
         <a href="{% url 'dashboard:index'%}"> Forgotten Password ?</a>
+        <a href="{% provider_login_url 'google'%}"> Login With Google</a>
         <div class="p">
             <p>Amanco.id © 2021. All Rights Reserved.</p>
         </div>

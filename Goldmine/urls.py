@@ -6,6 +6,7 @@ from . import views
 # this is Main URLS on root (Goldmine)
 urlpatterns = [
     path('', views.index, name='index'),
+    path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('dashboard/', include('dashboard.urls', namespace='dashboard')),
     path('engine/', include('engine.urls', namespace='engine')),
