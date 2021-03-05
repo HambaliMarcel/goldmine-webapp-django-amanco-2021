@@ -16,4 +16,4 @@ def index(request):
 
         return redirect('index')
 
-    return render(request, 'engine/index.html', context)
+    return render(request, 'settings/index.html', context)
