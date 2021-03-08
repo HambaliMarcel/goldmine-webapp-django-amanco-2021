@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head%}
-<link rel="stylesheet" href="{% static 'settings/css/stylesettings.css' %}">
+<link rel="stylesheet" href="{% static 'settings/css/settings.css' %}">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
 <title>{{title}} {{subtitle}} - Goldmine</title>
 
@@ -13,12 +13,16 @@
     <div class="header__toggle">
         <i class="uil uil-bars" id="header-toggle"></i>
     </div>
-    <h1>Scrap Engine</h1>
+    <h1>Engine Settings <i class="uil uil-sliders-v-alt nav__logo-icon" id="header-lg"></i></h1>
     <span class="sep"></span>
-    <div class="header__img">
-        <img src="{% static 'img/profil.jpeg' %}" alt="">
+    <div class="header__name">
+        <h1>{{name}}</h1>
     </div>
 </header>
+
+<div class="bd">
+    <h1></h1>
+</div>
 
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">

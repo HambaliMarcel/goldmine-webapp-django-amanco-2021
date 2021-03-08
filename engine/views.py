@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from engine.models import Source
 from engine.table import EngineForm
+from .formans import Formans
 # Create your views here.
 
 
@@ -11,8 +12,8 @@ def index(request):
     enginetable = Source.objects.all()
     context = {
         'title': 'Scrape Engine',
-        'heading': 'Selamat Datang di Engine',
         'src': enginetable,
+        'name': request.user.username
     }
 
     if request.method == "POST":
@@ -22,3 +23,20 @@ def index(request):
         return redirect('index')
 
     return render(request, 'engine/index.html', context)
+
+
+@login_required
+def addnewsource(request):
+    ans = Formans()
+    context = {
+        'title': 'Add Source',
+        'name': request.user.username,
+        'addsource': ans
+    }
+    if request.method == "POST":
+
+        src = request.POST['source']
+        auth = request.POST['auth']
+        role = request.POST['role']
+
+    return render(request, 'engine/addsource.html', context)

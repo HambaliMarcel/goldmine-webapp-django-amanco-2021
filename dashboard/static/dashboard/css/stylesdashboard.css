@@ -69,18 +69,13 @@ a{
   transition: 0.5s;
   width: 160px;
 }
-.header__img{
-  border-radius: 50%;
+.header__name h1{
+  padding-top: 0;
+  font-size: 20px;
+  color: #005a51;
+  position: relative;
   display: flex;
-  height: 40px;
   justify-content: center;
-  overflow: hidden;
-  transition: 0.5s;
-  width: 40px;
-}
-
-.header__img img{
-  width: 40px;
 }
 
 .body-a{

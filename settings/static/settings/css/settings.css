@@ -34,7 +34,7 @@ body{
 
 .header h1{
   color: #005a51;
-  font-size: 25px;
+  font-size: 22px;
   display: flex;
   position: relative;
   left: 10%;
@@ -45,12 +45,12 @@ body{
 .header .sep{
   border-radius: 50px;
   background-color: #005a51;
-  width: 28%;
+  width: 20%;
   height: 4px;
   display: flex;
   position: relative;
   transition: .5s;
-  right: 58%;
+  right: 48%;
   top: 30px;
 }
 a{
@@ -70,26 +70,26 @@ a{
   background-color: var(--white-color);
   z-index: var(--z-fixed);
 }
-
+.header #header-lg{
+  margin-top: 2px;
+  margin-left: 12px;
+  color: #005a51;
+}
 .header__toggle{
   color: var(--first-color);
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-.header__img{
-  width: 35px;
-  height: 35px;
+.header__name h1{
+  padding-top: 0;
+  margin-right: 50px;
+  font-size: 10px;
+  color: #005a51;
+  position: relative;
   display: flex;
   justify-content: center;
-  border-radius: 50%;
-  overflow: hidden;
 }
-
-.header__img img{
-  width: 40px;
-}
-
 /*----------------Navigation-----------------*/
 .l-navbar{
   position: fixed;
@@ -154,6 +154,7 @@ a{
 /*Show navbar movil*/
 .show{
   left: 0;
+  transition: 0.4s;
 }
 
 /*Add padding body movil*/
@@ -192,11 +193,13 @@ a{
   body{
     margin: calc(var(--header-height) + 1rem) 0 0 0;
     padding-left: calc(var(--nav-width) + 2rem);
+    transition: 0.4s;
   }
 
   .header{
     height: calc(var(--header-height) + 1rem);
     padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+    transition: 0.4s;
   }
   .header h1{
     font-size: 30px;
@@ -206,6 +209,11 @@ a{
     width: 100%;
     height: auto;
   }
+  .header #header-lg{
+    margin-top: 10px;
+    margin-left: 12px;
+    color: #005a51;
+  }
   .header .sep{
     border-radius: 50px;
     background-color: #005a51;
@@ -214,21 +222,14 @@ a{
     display: flex;
     position: relative;
     transition: .5s;
-    right: 74%;
+    right: 67%;
     top: 30px;
-  }
-  .header__img{
-    width: 40px;
-    height: 40px;
-  }
-
-  .header__img img{
-    width: 45px;
   }
 
   .l-navbar{
     left: 0;
     padding: 1rem 0 0 0;
+    transition: 0.4s;
   }
   
   /*Show navbar desktop*/

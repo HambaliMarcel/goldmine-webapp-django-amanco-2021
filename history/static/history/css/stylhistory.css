@@ -154,6 +154,7 @@ a{
 /*Show navbar movil*/
 .show{
   left: 0;
+  transition: 0.4s;
 }
 
 /*Add padding body movil*/
@@ -192,11 +193,13 @@ a{
   body{
     margin: calc(var(--header-height) + 1rem) 0 0 0;
     padding-left: calc(var(--nav-width) + 2rem);
+    transition: 0.4s;
   }
 
   .header{
     height: calc(var(--header-height) + 1rem);
     padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+    transition: 0.4s;
   }
   .header h1{
     font-size: 30px;
@@ -229,6 +232,7 @@ a{
   .l-navbar{
     left: 0;
     padding: 1rem 0 0 0;
+    transition: 0.4s;
   }
   
   /*Show navbar desktop*/

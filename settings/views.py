@@ -9,6 +9,7 @@ def index(request):
     context = {
         'title': 'Settings',
         'headline': 'Ini Adalah Settings',
+        'name': request.user.username,
     }
     if request.method == "POST":
         if request.POST['sout'] == "Submit":
