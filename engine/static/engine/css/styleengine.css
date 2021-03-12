@@ -257,7 +257,7 @@ a{
 /*------------body------------------------------*/
 .bg{
   left: 20%;
-  top: 0px;
+  top: 10%;
   width: 70%;
   height: auto;
   z-index: -1;

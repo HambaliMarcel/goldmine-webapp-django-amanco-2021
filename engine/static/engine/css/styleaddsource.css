@@ -34,7 +34,7 @@ body{
 
 .header h1{
   color: #005a51;
-  font-size: 22px;
+  font-size: 25px;
   display: flex;
   position: relative;
   left: 10%;
@@ -42,15 +42,23 @@ body{
   height: auto;
   z-index: var(--z-fixed);
 }
+.header__name h1{
+  margin-right: 100px;
+  font-size: 1px;
+  color: #005a51;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
 .header .sep{
   border-radius: 50px;
   background-color: #005a51;
-  width: 20%;
+  width: 28%;
   height: 4px;
   display: flex;
   position: relative;
   transition: .5s;
-  right: 48%;
+  right: 58%;
   top: 30px;
 }
 a{
@@ -70,26 +78,26 @@ a{
   background-color: var(--white-color);
   z-index: var(--z-fixed);
 }
-.header #header-lg{
-  margin-top: 2px;
-  margin-left: 12px;
-  color: #005a51;
-}
+
 .header__toggle{
   color: var(--first-color);
   font-size: 1.5rem;
   cursor: pointer;
 }
 
-.header__name h1{
-  padding-top: 0;
-  margin-right: 50px;
-  font-size: 10px;
-  color: #005a51;
-  position: relative;
+.header__img{
+  width: 35px;
+  height: 35px;
   display: flex;
   justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
 }
+
+.header__img img{
+  width: 40px;
+}
+
 /*----------------Navigation-----------------*/
 .l-navbar{
   position: fixed;
@@ -187,7 +195,80 @@ a{
   background-color: none;
   border: none;
 }
+/*--------------------Contents -----------------------------*/
+.bg{
+  left: 20%;
+  top: 10%;
+  width: 70%;
+  height: auto;
+  z-index: -1;
+  position: fixed;
+  opacity: 0.15;
+}
+.formadd{
+  width: 85%;
+  margin: 30px;
+  margin-top: 70px;
+  position: fixed;
+  font-size: 17px;
+  color: #005a51;
+}
+.field{
+  margin-bottom: 30px;
+}
+#id_source{
+  margin-left: 80px;
+  color: #000000;
+  background-color:  rgb(206, 206, 206);
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  width: 200px;
+  height: 35px;
+  padding: 10px;
+  padding-left: 14px;
 
+}
+#id_auth{
+  margin-left: 100px;
+  border-color: #005a51;
+  border-radius: 50px;
+  outline: none;
+  cursor: pointer;
+  background-color: var(--first-color);
+
+}
+#id_role{
+  margin-left: 100px;
+  color: #000000;
+  background-color: rgb(206, 206, 206);
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  width: 200px;
+  height: 35px;
+  padding: 0 100px;
+}
+
+#submit{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  left: 50%;
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+  color: white;
+  background-image: linear-gradient(to right,#005a51,#02313f);
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  width: 100px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+}
+#submit:hover{
+  opacity: 0.7;
+}
 /*---------------- MEDIA QUERIES-----------------*/
 @media screen and (min-width: 768px){
   body{
@@ -208,11 +289,13 @@ a{
     left: 10%;
     width: 100%;
     height: auto;
-  }
-  .header #header-lg{
-    margin-top: 10px;
-    margin-left: 12px;
+  }.header__name h1{
+    margin-right: 100px;
+    font-size: 15px;
     color: #005a51;
+    position: relative;
+    display: flex;
+    justify-content: center;
   }
   .header .sep{
     border-radius: 50px;
@@ -222,8 +305,16 @@ a{
     display: flex;
     position: relative;
     transition: .5s;
-    right: 67%;
+    right: 62%;
     top: 30px;
+  }
+  .header__img{
+    width: 40px;
+    height: 40px;
+  }
+
+  .header__img img{
+    width: 45px;
   }
 
   .l-navbar{
@@ -241,6 +332,55 @@ a{
   .body-pd{
     padding-left: calc(var(--nav-width) + 188px);
   }
+  #id_source{
+    margin-left: 80px;
+    color: #000000;
+    background-color:  rgb(206, 206, 206);
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    width: 300px;
+    height: 35px;
+    padding: 10px;
+    padding-left: 14px;
+  
+  }
+  #id_auth{
+    margin-left: 100px;
+    border-color: #005a51;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+    background-color: var(--first-color);
+  
+  }
+  #id_role{
+    margin-left: 100px;
+    color: #000000;
+    background-color: rgb(206, 206, 206);
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    width: 300px;
+    height: 35px;
+    padding: 0 100px;
+  }
+  
+  #submit{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    left: 50%;
+    position: relative;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    background-image: linear-gradient(to right,#005a51,#02313f);
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    width: 100px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+  }
 }
-
 

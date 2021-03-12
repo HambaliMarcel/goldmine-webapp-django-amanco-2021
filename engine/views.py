@@ -34,9 +34,9 @@ def addnewsource(request):
         'addsource': ans
     }
     if request.method == "POST":
+        if request.POST['sout'] == "Submit":
+            logout(request)
 
-        src = request.POST['source']
-        auth = request.POST['auth']
-        role = request.POST['role']
+        return redirect('index')
 
     return render(request, 'engine/addsource.html', context)

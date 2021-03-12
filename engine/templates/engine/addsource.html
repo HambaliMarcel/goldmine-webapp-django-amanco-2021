@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head%}
-<link rel="stylesheet" href="{% static 'engine/css/engine.css' %}">
+<link rel="stylesheet" href="{% static 'engine/css/styleaddsource.css' %}">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
 <title>{{title}} {{subtitle}} - Goldmine</title>
 
@@ -20,24 +20,27 @@
     </div>
 </header>
 
-<div class="f-login">
+<div class="formadd">
+    <img src="{% static 'engine/img/Onlinepana.png' %}" class="bg">
+    <br>
     <form method="POST">
         {% csrf_token %}
-        <div class="source">
-            {{addsource.source}}
+        <div class="field">
+            <label for="id_source">Source </label>
+            {{addsource.source}} <br>
         </div>
-        <i class="fas fa-lock"></i>
-        <br>
-        <div class="auth">
-            {{addsource.auth}}
+        <div class="field">
+            <label for="id_auth">Auth </label>
+            {{addsource.auth}} <br>
         </div>
-        <br>
-        <br>
-        <div class="role">
-            {{addsource.role}}
+        <div class="field">
+            <label for="id_role">Role </label>
+            {{addsource.role}} <br>
         </div>
-        <br>
-        <input type="submit" value="Login" id="submit">
+
+        <div class="field">
+            <input type="submit" value="+ Add" id="submit">
+        </div>
     </form><br>
 
 </div>
