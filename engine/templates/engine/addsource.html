@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head%}
-<link rel="stylesheet" href="{% static 'engine/css/styleaddsource.css' %}">
+<link rel="stylesheet" href="{% static 'engine/css/stylesource.css' %}">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
 <title>{{title}} {{subtitle}} - Goldmine</title>
 
@@ -27,19 +27,19 @@
         {% csrf_token %}
         <div class="field">
             <label for="id_source">Source </label>
-            {{addsource.source}} <br>
+            {{addsrc.source}} <br>
         </div>
         <div class="field">
             <label for="id_auth">Auth </label>
-            {{addsource.auth}} <br>
+            {{addsrc.auth}} <br>
         </div>
         <div class="field">
             <label for="id_role">Role </label>
-            {{addsource.role}} <br>
+            {{addsrc.role}} <br>
         </div>
 
         <div class="field">
-            <input type="submit" value="+ Add" id="submit">
+            <input type="submit" value="+ Add" id="submit" name="addsrc">
         </div>
     </form><br>
 

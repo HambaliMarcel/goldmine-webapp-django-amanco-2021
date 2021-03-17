@@ -27,16 +27,49 @@ def index(request):
 
 @login_required
 def addnewsource(request):
-    ans = Formans()
+    add = Formans(request.POST or None)
     context = {
         'title': 'Add Source',
         'name': request.user.username,
-        'addsource': ans
+        'addsrc': add
     }
-    if request.method == "POST":
-        if request.POST['sout'] == "Submit":
-            logout(request)
 
+    if request.method == 'POST' and 'sout' in request.POST:
+        logout(request)
         return redirect('index')
 
+    if request.method == 'POST' and 'addsrc' in request.POST:
+        if add.is_valid():
+            add.save()
+            return redirect('engine:index')
+
     return render(request, 'engine/addsource.html', context)
+
+
+@login_required
+def edit(request, id):
+    edit = Source.objects.get(id=id)
+    valid = Formans(request.POST or None, instance=edit)
+    context = {
+        'title': 'Edit',
+        'name': request.user.username,
+        'edt': edit,
+    }
+
+    if request.method == 'POST' and 'sout' in request.POST:
+        logout(request)
+        return redirect('index')
+
+    if request.method == 'POST' and 'addsrc' in request.POST:
+        if valid.is_valid():
+            valid.save()
+            return redirect('engine:index')
+
+    return render(request, 'engine/edit.html', context)
+
+
+@login_required
+def delete(request, id):
+    edit = Source.objects.get(id=id)
+    edit.delete()
+    return redirect('engine:index')

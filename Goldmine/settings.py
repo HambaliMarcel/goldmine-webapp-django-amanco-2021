@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'Goldmine.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'goldmine',
+        'NAME': 'goldmineproject',
         'USER': 'postgres',
         'PASSWORD': 'Iamhappy123',
         'HOST': 'localhost',

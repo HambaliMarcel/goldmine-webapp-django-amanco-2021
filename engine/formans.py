@@ -1,9 +1,12 @@
 from django import forms
+from .models import Source
 
 
-class Formans(forms.Form):
-    source = forms.CharField(widget=forms.TextInput(attrs={
-        'placeholder': 'Source Website'
-    }))
-    auth = forms.BooleanField(widget=forms.CheckboxInput)
-    role = forms.ChoiceField(widget=forms.Select)
+class Formans(forms.ModelForm):
+    class Meta:
+        model = Source
+        fields = [
+            'source',
+            'auth',
+            'role',
+        ]
