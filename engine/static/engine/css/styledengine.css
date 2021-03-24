@@ -330,9 +330,8 @@ a{
   
   .table thead th {
     border: none; 
-    background-image: linear-gradient(to right,#005a51,#02313f);
+    background-image: linear-gradient(to right,#02313f,#005a51);
     vertical-align: bottom;
-    border: 2px solid #005a51;
   }
   
   .table tbody + tbody {

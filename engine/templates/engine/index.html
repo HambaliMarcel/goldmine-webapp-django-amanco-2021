@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head%}
-<link rel="stylesheet" href="{% static 'engine/css/styleengine.css' %}">
+<link rel="stylesheet" href="{% static 'engine/css/styledengine.css' %}">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
 <title>{{title}} {{subtitle}} - Goldmine</title>
 
@@ -24,7 +24,7 @@
     <br>
     <a href="{% url 'engine:ans'%}" class="btn-add">Add</a><br><br>
     <div class="table-responsive">
-        <table class="table table-striped table-bordered" widht="100%">
+        <table id="tabel" class="table table-striped table-bordered" widht="100%">
             <thead>
                 <th>Source</th>
                 <th>Auth.</th>
@@ -52,9 +52,47 @@
 
         </table>
     </div>
-    <form method="POST">
+
+    <form method="POST" id="task-form">
         {% csrf_token %}
-        <input type="submit" class="btn-scrap" name="scrap" value="Scrap It !">
+
+        <input type="submit" class="btn-scrap" name="scrap" value="Scrap It !" id="myBtn" onclick="change()">
+
+        <script>
+            var tbl = document.getElementById('tabel');
+            if (tbl.rows.length == 1) {
+                document.getElementById("myBtn").disabled = true;
+            }
+            var status = "{{stat.status}}";
+            if (status == "stop") {
+                document.getElementById("myBtn").value = "Scrap It !";
+                document.getElementById("myBtn").style.backgroundImage = "linear-gradient(to right,#005a51,#02313f)";
+
+
+            }
+            if (status == "run") {
+                document.getElementById("myBtn").value = "Stop It !";
+                document.getElementById("myBtn").style.backgroundImage = "linear-gradient(to right,#a50404,#02313f)";
+
+            }
+            function change() {
+                var elem = document.getElementById("myBtn");
+                if (elem.value == "Scrap It !") {
+                    elem.value = "Stop It !";
+                    elem.style.backgroundImage = "linear-gradient(to right,#a50404,#02313f)";
+                    alert("Scraper running, Please don't turn off your device.");
+
+                }
+                else {
+                    elem.value = "Scrap It !";
+                    elem.style.backgroundImage = "linear-gradient(to right,#005a51,#02313f)";
+                    alert("Scraper is going off, Please wait 10 sec after hit OK.");
+                }
+            }
+
+
+        </script>
+
     </form>
 
 </div>

@@ -6,7 +6,9 @@ from django.db import models
 class setting(models.Model):
     param_def = models.BooleanField(blank=True, default=False,)
     schedule = models.CharField(max_length=50)
+    exptype = models.BooleanField(blank=True, default=False,)
     export = models.CharField(max_length=50)
+    uname = models.CharField(max_length=50, null=True)
 
     class Meta:
         db_table: 'setting'

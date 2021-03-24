@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-from engine.models import Source
+from engine.models import Source, breaker
 from engine.table import EngineForm
 from .formans import Formans
+from .scraperName import scrapeName
 # Create your views here.
 
 
@@ -13,14 +14,29 @@ def index(request):
     context = {
         'title': 'Scrape Engine',
         'src': enginetable,
-        'name': request.user.username
+        'name': request.user.username,
+        'stat': breaker.objects.get(username=request.user.username)
     }
-
-    if request.method == "POST":
-        if request.POST['sout'] == "Submit":
-            logout(request)
-
+    name = request.user.username
+    if request.method == 'POST' and 'sout' in request.POST:
+        logout(request)
         return redirect('index')
+
+    if request.method == 'POST' and 'scrap' in request.POST:
+        broker = breaker.objects.get(username=request.user.username)
+        if (broker.status == "stop"):
+            print("proses menghidupkan dari keadaan", broker.status)
+            broker.status = "run"
+            broker.save(update_fields=['status'])
+            print("status saat ini : ", broker.status)
+            return scrapeName(name, 1)
+
+        if (broker.status == "run"):
+            print("proses mematikan dari keadaan", broker.status)
+            broker.status = "stop"
+            broker.save(update_fields=['status'])
+            print("status saat ini : ", broker.status)
+            return redirect('engine:index')
 
     return render(request, 'engine/index.html', context)
 

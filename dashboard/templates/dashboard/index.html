@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block head%}
-<link rel="stylesheet" href="{% static 'dashboard/css/stylesdashboard.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/css/styledashboard.css' %}">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
 <title>{{title}} - Goldmine</title>
 
@@ -25,7 +25,10 @@
     <img src="{% static 'dashboard/img/Company-pana.png'%}" alt="">
 </section>
 <section class="body-b">
-    <a href="{% url 'engine:index'%}"> As Good As It's Gold</a>
+    <form method="POST">
+        {% csrf_token %}
+        <button id="dshbrd" name="newacc" type="submit" href="{% url 'engine:index'%}"> As Good As It's Gold</button>
+    </form>
 </section>
 
 {% endblock body%}

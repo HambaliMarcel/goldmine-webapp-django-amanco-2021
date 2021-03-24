@@ -31,13 +31,15 @@
             <input type="text" name="source" maxlength="100" required="" id="id_source" value="{{edt.source}}"><br>
         </div>
         <div class="field">
+
             <label for="id_auth">Auth </label>
             <input type="checkbox" name="auth" id="id_auth"><br>
             <script>
-                const auth = {{ edt.auth }};
-                if (auth == true) { document.getElementById("id_auth").checked = true; }
+                var auth = "{{edt.auth}}";
+                if (auth == "True") { document.getElementById("id_auth").checked = true; }
                 else { document.getElementById("id_auth").checked = false; }
             </script>
+
         </div>
         <div class="field">
             <label for="id_role">Role </label>
@@ -61,7 +63,6 @@
     </form><br>
 
 </div>
-
 
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">

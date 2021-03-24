@@ -114,7 +114,7 @@ a{
   transition: 0.5s;
 }
 
-.body-b a{
+.body-b button{
   border-radius: 50px;
   border: none;
   background-image: linear-gradient(to right,#005a51,#02313f);
@@ -130,7 +130,7 @@ a{
   transition: 0.5s;
 }
 
-.body-b a:hover{
+.body-b button:hover{
   opacity: 0.6;
 }
 
